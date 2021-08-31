@@ -1,0 +1,8 @@
+.section {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  text-transform: uppercase;
+  color: #444;
+}
