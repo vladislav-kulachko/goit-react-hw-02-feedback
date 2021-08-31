@@ -11,7 +11,7 @@
   text-transform: uppercase;
   border-radius: 3px;
   color: #ccc;
-  background: linear-gradient(rgb(156, 148, 130), rgb(77, 64, 46));
+  background: linear-gradient(rgb(189, 173, 142), rgb(77, 64, 46));
   border: 0 none;
   text-shadow: 0 -1px 0 #000;
   box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0, 0, 0, 0.6);
@@ -26,7 +26,7 @@
 }
 .blink:active {
   border-radius: 50%;
-  background-color: rgb(110, 88, 46);
+  background-color: rgb(175, 157, 124);
   animation: blink 0.7s ease-out forwards;
   transform: scale(0);
 }
@@ -34,7 +34,7 @@
   to {
     transform: scale(2);
     background-color: rgb(53, 36, 5);
-    opacity: 0.5;
+    opacity: 0.6;
   }
 }
 /* .btnBlink {
