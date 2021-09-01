@@ -3,34 +3,31 @@ import s from './Statistics.module.css';
 
 class Statistics extends Component {
   countTotalFeedback = () => {
-    const {good, neutral, bad} = this.props.state;
-    const total = good + neutral + bad;
+    const state = Object.values(this.props.state);
+    const total = state.reduce((a, i) => a + i);
     return total;
   };
   countPositiveFeedbackPercentage = () => {
-    const {good, neutral, bad} = this.props.state;
-    const posPercent = Math.round((good / (good + neutral + bad)) * 100);
+    const state = Object.values(this.props.state);
+    const total = state.reduce((a, i) => a + i);
+    const posPercent = Math.round((state[0] / total) * 100);
     return posPercent;
   };
 
   render() {
-    const {good, neutral, bad} = this.props.state;
-
+    const state = this.props.state;
     return (
       <>
-        {Object.values(this.props.state).find(value => value > 0) ? (
+        {Object.values(state).find(value => value > 0) ? (
           <div className={s.container}>
-            <h2 className={s.title}>Statistics</h2>
+            <h2 className={s.title}>Statistics:</h2>
             <ul className={s.list}>
-              <li className={s.item}>
-                Good: <span className={s.value}>{good}</span>
-              </li>
-              <li className={s.item}>
-                Neutral: <span className={s.value}>{neutral}</span>
-              </li>
-              <li className={s.item}>
-                Bad: <span className={s.value}>{bad}</span>
-              </li>
+              {Object.keys(state).map((key, i) => (
+                <li key={key} className={s.item}>
+                  {key.slice(0, 1).toUpperCase() + key.slice(1)}:{' '}
+                  <span className={s.value}>{Object.values(state)[i]}</span>
+                </li>
+              ))}
               <li className={s.item}>
                 Total:{' '}
                 <span className={s.value}>{this.countTotalFeedback()}</span>

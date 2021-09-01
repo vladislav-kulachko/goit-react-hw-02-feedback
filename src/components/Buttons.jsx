@@ -14,7 +14,7 @@ class FeedbackOptions extends Component {
     this.arrRefs.push(node);
   };
 
-  calcPosBlink = (e, i) => {
+  calcPosBlink = (e, i, key) => {
     let maxSize = Math.max(
       this.arrRefs[i].clientWidth,
       this.arrRefs[i].clientHeight,
@@ -28,7 +28,7 @@ class FeedbackOptions extends Component {
       left: left,
       top: top,
     });
-
+    this.props.handleIncrement(key);
     console.log(
       left,
       top,
@@ -46,12 +46,12 @@ class FeedbackOptions extends Component {
       <div className={s.container}>
         {this.props.stateKeys.map((key, i) => (
           <button
+            id={key}
             ref={this.setRef}
             key={key}
             type="button"
             className={s.button}
-            onMouseDown={e => this.calcPosBlink(e, i)}
-            onClick={() => this.props.handleIncrement(key)}
+            onMouseDown={e => this.calcPosBlink(e, i, key)}
             // onMouseDown={() => this.setState({blinkClass: true})}
             // onMouseUp={() => this.setState({blinkClass: false})}
           >
