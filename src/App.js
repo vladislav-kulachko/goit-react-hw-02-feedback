@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
 import './App.css';
-import FeedbackOptions from './components/Buttons';
-import Statistics from './components/Statistics';
-import Section from './components/Section';
-import Notify from './components/Notification';
+import FeedbackOptions from './components/Buttons/Buttons';
+import Statistics from './components/Statistics/Statistics';
+import Section from './components/Section/Section';
+import Notify from './components/Notification/Notification';
 
 class App extends Component {
   state = {
@@ -26,7 +26,7 @@ class App extends Component {
           handleIncrement={this.handleIncrement}
         ></FeedbackOptions>
         <Statistics state={this.state}>
-          <Notify message={'O my God, urgently click!'} />
+          <Notify message={'O my God, urgently click!'}></Notify>
         </Statistics>
       </Section>
     );
