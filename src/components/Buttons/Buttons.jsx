@@ -29,15 +29,6 @@ class FeedbackOptions extends Component {
       top: top,
     });
     this.props.handleIncrement(key);
-    console.log(
-      left,
-      top,
-      maxSize,
-      coords.left,
-      coords.top,
-      e.clientY,
-      e.clientX,
-    );
   };
 
   render() {
